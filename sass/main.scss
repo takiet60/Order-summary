@@ -1,0 +1,130 @@
+@use './color'as*;
+@use './layouts'as*;
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 100%;
+}
+
+body {
+    background-image: url('../images/pattern-background-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@include mq {
+    body {
+        background-image: url('../images/pattern-background-desktop.svg');
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background-color: hsl($clr-white);
+    width: min(90%, 350px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 13px 16px 0px hsla(224 23% 55% / 0.2);
+
+    &__body {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: 900;
+        color: hsl($clr-dark-blue);
+        margin-bottom: 1rem;
+    }
+
+    &__description,
+    &__value {
+        color: hsl($clr-desaturated-blue)
+    }
+
+    &__price {
+        display: flex;
+        // gap: 1rem;
+        padding: 2rem 0;
+    }
+
+    &__info {
+        flex-grow: 1;
+        margin-right: 2rem;
+    }
+
+    &__time {
+        font-weight: 700;
+        color: hsl($clr-dark-blue);
+    }
+}
+
+.btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    transition: 200ms ease-in-out;
+
+    &--underline {
+        color: hsl($clr-bright-blue);
+        font-weight: 700;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &--primary {
+        background-color: hsl($clr-bright-blue);
+        color: hsl($clr-white);
+        font-weight: 700;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0px 13px 16px 0px hsla(224 23% 55% / 0.3);
+
+        &:hover {
+            background-color: hsl(245 75% 52% / .7);
+        }
+    }
+
+    &--secondary {
+        padding: 1rem;
+        font-weight: 700;
+        color: hsl(223 47% 23% / 0.7);
+
+        &:hover {
+            color: hsl(223 47% 23% / 1);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}
